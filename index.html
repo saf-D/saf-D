@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-cmn">
 <head>
-  <script>
-  !function () {
-    function n(n, e, t) {
-        return n.getAttribute(e) || t
-    }
+
+<script src="js/jquery.min.js"></script>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  overflow: hidden;
+}
+</style>
+<meta charset="utf-8">
+  <title>星汉与远洋-公告与下载</title>
+  </head>
+ <body> 
+<marquee>正在维护中ing</marquee>
+
+<marquee direction="up">正在维护中ing</marquee>
+
+<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+  <marquee behavior="alternate">
+    正在维护中ing
+  </marquee>
+</marquee>
+<img src="https://pic1.imgdb.cn/item/63676c2b16f2c2beb11d91c3.png">
+<body style="background-color:AliceBlue;">
+
+<font color="red"><p>Hello 大家好</p></font>
+<font color="yellowgreen"><p>我们是 星汉与远洋 </p></font>
+<font color="darkblue"><p>我们致力于青少年读书问题，推荐好的书籍，让广大青少年爱上读书</p></font>
+<br />
+  <br />
+  <br />
+ <font color="red"><h1>公告</h1></font>
+  <br />
+  <br />
+  <font color="skyblue"><p>欢迎来到[星汉与远洋-公告与下载]网站!</p></font>
+  <br/>
+   <font color="red"><p>注意:所有下载链接(前提是链接为免费提供的)密码均为safd</p></font>
+    <br/>
+                   <font color="skyblue"><p>本页面纯代码开发</p></font>
+    <br/>
+  <font color="red"><p>公告栏待开发</p></font>
+    <br />
+  <br />
+ <font color="skyblue"><h1>下载</h1></font>
+    <br />
+  <br />
+<font color="yellowgreen"><a href="https://saf123.mysxl.cn/" target="_blank" rel="noopener noreferrer">访问[星汉与远洋-介绍]网站</a></font>
+  <br />
+  <font color="red"><a href="https://saf-d.github.io/saf1/" target="_blank" rel="noopener noreferrer">访问[星汉与远洋-首页]网站</a></font>
+  <br />
+<font color="yellowgreen"><a href="https://saf-d.lanzoul.com/b03vfmu1i" target="_blank" rel="noopener noreferrer">下载C++(密码为safd)</a></font>
+
+<br />
+<font color="yellowgreen"><a href="https://www.bilibili.com/video/BV1Pe411T7eg/" target="_blank" rel="noopener noreferrer">查看C++下载教程</a></font>
+  <br />
+<font color="yellowgreen"><a href="https://item.jd.com/47105821837.html" target="_blank" rel="noopener noreferrer">购买《病毒星球》</a></font>
+<br />
+<font color="yellowgreen"><a href="https://saf-d.lanzoul.com/b03vfmsxi" target="_blank" rel="noopener noreferrer">下载Typora</a></font>
  
-    function e(n) {
-        return document.getElementsByTagName(n)
-    }
- 
-    function t() {
-        var t = e("script"), o = t.length, i = t[o - 1];
-        return {l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99)}
-    }
- 
-    function o() {
-        a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-    }
- 
-    function i() {
-        r.clearRect(0, 0, a, c);
-        var n, e, t, o, m, l;
-        s.forEach(function (i, x) {
-            for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e], null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
-        }), x(i)
-    }
- 
-    var a, c, u, m = document.createElement("canvas"), d = t(), l = "c_n" + d.l, r = m.getContext("2d"),
-        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (n) {
-            window.setTimeout(n, 1e3 / 45)
-        }, w = Math.random, y = {x: null, y: null, max: 2e4};
-    m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o, window.onmousemove = function (n) {
-        n = n || window.event, y.x = n.clientX, y.y = n.clientY
-    }, window.onmouseout = function () {
-        y.x = null, y.y = null
-    };
-    for (var s = [], f = 0; d.n > f; f++) {
-        var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1;
-        s.push({x: h, y: g, xa: v, ya: p, max: 6e3})
-    }
-    u = s.concat([y]), setTimeout(function () {
-        i()
-    }, 100)
-}();
-  
-</script>
-  
 <canvas id="canvas"></canvas>
 <!-- best viewed in chrome -->
  
@@ -260,65 +273,6 @@ $(canvas).on('click', (e) => {
 loop();
  
 </script>
-<script src="js/jquery.min.js"></script>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  background: #000000;
-  overflow: hidden;
-}
-</style>
-<meta charset="utf-8">
-  <title>星汉与远洋-公告与下载</title>
-  </head>
- <body> 
-<marquee>正在维护中ing</marquee>
-
-<marquee direction="up">正在维护中ing</marquee>
-
-<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
-  <marquee behavior="alternate">
-    正在维护中ing
-  </marquee>
-</marquee>
-<img src="https://pic1.imgdb.cn/item/63676c2b16f2c2beb11d91c3.png">
-<body style="background-color:AliceBlue;">
-
-<font color="red"><p>Hello 大家好</p></font>
-<font color="yellowgreen"><p>我们是 星汉与远洋 </p></font>
-<font color="darkblue"><p>我们致力于青少年读书问题，推荐好的书籍，让广大青少年爱上读书</p></font>
-<br />
-  <br />
-  <br />
- <font color="red"><h1>公告</h1></font>
-  <br />
-  <br />
-  <font color="skyblue"><p>欢迎来到[星汉与远洋-公告与下载]网站!</p></font>
-  <br/>
-   <font color="red"><p>注意:所有下载链接(前提是链接为免费提供的)密码均为safd</p></font>
-    <br/>
-                   <font color="skyblue"><p>本页面纯代码开发</p></font>
-    <br/>
-  <font color="red"><p>公告栏待开发</p></font>
-    <br />
-  <br />
- <font color="skyblue"><h1>下载</h1></font>
-    <br />
-  <br />
-<font color="yellowgreen"><a href="https://saf123.mysxl.cn/" target="_blank" rel="noopener noreferrer">访问[星汉与远洋-介绍]网站</a></font>
-  <br />
-  <font color="red"><a href="https://saf-d.github.io/saf1/" target="_blank" rel="noopener noreferrer">访问[星汉与远洋-首页]网站</a></font>
-  <br />
-<font color="yellowgreen"><a href="https://saf-d.lanzoul.com/b03vfmu1i" target="_blank" rel="noopener noreferrer">下载C++(密码为safd)</a></font>
-
-<br />
-<font color="yellowgreen"><a href="https://www.bilibili.com/video/BV1Pe411T7eg/" target="_blank" rel="noopener noreferrer">查看C++下载教程</a></font>
-  <br />
-<font color="yellowgreen"><a href="https://item.jd.com/47105821837.html" target="_blank" rel="noopener noreferrer">购买《病毒星球》</a></font>
-<br />
-<font color="yellowgreen"><a href="https://saf-d.lanzoul.com/b03vfmsxi" target="_blank" rel="noopener noreferrer">下载Typora</a></font>
-
 
 </body>
   <noscript> 
