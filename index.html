@@ -1,9 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-lang">
+<head>
+  
+<script src="js/jquery.min.js"></script>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  overflow: hidden;
+}
+</style>
 <meta charset="utf-8">
+  <title>星汉与远洋-公告与下载</title>
+  </head>
+ <body> 
+<marquee>正在维护中ing</marquee>
+
+<marquee direction="up">正在维护中ing</marquee>
+
+<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+  <marquee behavior="alternate">
+    正在维护中ing
+  </marquee>
+</marquee>
 <img src="https://pic1.imgdb.cn/item/63676c2b16f2c2beb11d91c3.png">
 <body style="background-color:AliceBlue;">
-<font color="darkgreen"><title>星汉与远洋-公告与下载</title></font>
+
 <font color="red"><p>Hello 大家好</p></font>
 <font color="yellowgreen"><p>我们是 星汉与远洋 </p></font>
 <font color="darkblue"><p>我们致力于青少年读书问题，推荐好的书籍，让广大青少年爱上读书</p></font>
@@ -37,5 +60,269 @@
 <font color="yellowgreen"><a href="https://item.jd.com/47105821837.html" target="_blank" rel="noopener noreferrer">购买《病毒星球》</a></font>
 <br />
 <font color="yellowgreen"><a href="https://saf-d.lanzoul.com/b03vfmsxi" target="_blank" rel="noopener noreferrer">下载Typora</a></font>
+
+<script>
+  !function () {
+    function n(n, e, t) {
+        return n.getAttribute(e) || t
+    }
+ 
+    function e(n) {
+        return document.getElementsByTagName(n)
+    }
+ 
+    function t() {
+        var t = e("script"), o = t.length, i = t[o - 1];
+        return {l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99)}
+    }
+ 
+    function o() {
+        a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    }
+ 
+    function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function (i, x) {
+            for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e], null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
+        }), x(i)
+    }
+ 
+    var a, c, u, m = document.createElement("canvas"), d = t(), l = "c_n" + d.l, r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (n) {
+            window.setTimeout(n, 1e3 / 45)
+        }, w = Math.random, y = {x: null, y: null, max: 2e4};
+    m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o, window.onmousemove = function (n) {
+        n = n || window.event, y.x = n.clientX, y.y = n.clientY
+    }, window.onmouseout = function () {
+        y.x = null, y.y = null
+    };
+    for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1;
+        s.push({x: h, y: g, xa: v, ya: p, max: 6e3})
+    }
+    u = s.concat([y]), setTimeout(function () {
+        i()
+    }, 100)
+}();
+  
+</script>
+  
+<canvas id="canvas"></canvas>
+<!-- best viewed in chrome -->
+ 
+<script>
+// fun options!
+const PARTICLES_PER_FIREWORK = 150; // 100 - 400 or try 1000
+const FIREWORK_CHANCE = 0.02; // percentage, set to 0 and click instead
+const BASE_PARTICLE_SPEED = 0.6; // between 0-4, controls the size of the overall fireworks
+const FIREWORK_LIFESPAN = 600; // ms
+const PARTICLE_INITIAL_SPEED = 4.5; // 2-8
+ 
+// not so fun options =\
+const GRAVITY = 9.8;
+ 
+ 
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+ 
+let particles = [];
+let disableAutoFireworks = false;
+let resetDisable = 0;
+ 
+let loop = () => {
+  
+  if (!disableAutoFireworks && Math.random() < FIREWORK_CHANCE) {
+    createFirework();
+  }
+  
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  particles.forEach((particle, i) => {
+    particle.animate();
+    particle.render();
+    if (particle.y > canvas.height 
+        || particle.x < 0 
+        || particle.x > canvas.width
+        || particle.alpha <= 0
+       ) {
+      particles.splice(i, 1);
+    }
+  });
+  
+  requestAnimationFrame(loop);
+  
+};
+ 
+let createFirework = (
+    x = Math.random() * canvas.width,
+    y = Math.random() * canvas.height
+  ) => {
+  
+  let speed = (Math.random() * 2) + BASE_PARTICLE_SPEED;
+  let maxSpeed = speed;
+ 
+  let red = ~~(Math.random() * 255);
+  let green = ~~(Math.random() * 255);
+  let blue = ~~(Math.random() * 255);
+  
+  // use brighter colours
+  red = (red < 150 ? red + 150 : red);
+  green = (green < 150 ? green + 150 : green);
+  blue = (blue < 150 ? blue + 150 : blue);
+ 
+  // inner firework
+  for (let i = 0; i < PARTICLES_PER_FIREWORK; i++) {
+    let particle = new Particle(x, y, red, green, blue, speed);
+    particles.push(particle);
+ 
+    maxSpeed = (speed > maxSpeed ? speed : maxSpeed);
+  }
+ 
+  // outer edge particles to make the firework appear more full
+  for (let i = 0; i < 40; i++) {
+    let particle = new Particle(x, y, red, green, blue, maxSpeed, true);
+    particles.push(particle);
+  }
+  
+};
+ 
+class Particle {
+  
+  constructor(
+    x = 0,
+    y = 0, 
+    red = ~~(Math.random() * 255), 
+    green = ~~(Math.random() * 255), 
+    blue = ~~(Math.random() * 255), 
+    speed, 
+    isFixedSpeed
+  ) {
+    
+    this.x = x;
+    this.y = y;
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    this.alpha = 0.05;
+    this.radius = 1 + Math.random();
+    this.angle = Math.random() * 360;
+    this.speed = (Math.random() * speed) + 0.1;
+    this.velocityX = Math.cos(this.angle) * this.speed;
+    this.velocityY = Math.sin(this.angle) * this.speed;
+    this.startTime = (new Date()).getTime();
+    this.duration = Math.random() * 300 + FIREWORK_LIFESPAN;
+    this.currentDiration = 0;
+    this.dampening = 30; // slowing factor at the end
+    
+    this.colour = this.getColour();
+    
+    if (isFixedSpeed) {
+      this.speed = speed;
+      this.velocityY = Math.sin(this.angle) * this.speed;
+      this.velocityX = Math.cos(this.angle) * this.speed;
+    }
+    
+    this.initialVelocityX = this.velocityX;
+    this.initialVelocityY = this.velocityY;
+ 
+  }
+  
+  animate() {
+    
+    this.currentDuration = (new Date()).getTime() - this.startTime;
+    
+    // initial speed kick
+    if (this.currentDuration <= 200) {
+      
+      this.x += this.initialVelocityX * PARTICLE_INITIAL_SPEED;
+      this.y += this.initialVelocityY * PARTICLE_INITIAL_SPEED;
+      this.alpha += 0.01;
+ 
+      this.colour = this.getColour(240, 240, 240, 0.9);
+      
+    } else {
+      
+      // normal expansion
+      this.x += this.velocityX;
+      this.y += this.velocityY;
+      this.colour = this.getColour(this.red, this.green, this.blue, 0.4 + (Math.random() * 0.3));
+      
+    }
+    
+    this.velocityY += GRAVITY / 1000;
+    
+    // slow down particles at the end
+    if (this.currentDuration >= this.duration) {
+      this.velocityX -= this.velocityX / this.dampening; 
+      this.velocityY -= this.velocityY / this.dampening;
+    }
+    
+    if (this.currentDuration >= this.duration + this.duration / 1.1) {
+      
+      // fade out at the end
+      this.alpha -= 0.02;
+      this.colour = this.getColour();
+      
+    } else {
+      
+      // fade in during expansion
+      if (this.alpha < 1) {
+        this.alpha += 0.03;
+      }
+      
+    }
+  }
+  
+  render() {
+    
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+    ctx.lineWidth = this.lineWidth;
+    ctx.fillStyle = this.colour;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = this.getColour(this.red + 150, this.green + 150, this.blue + 150, 1);
+    ctx.fill();
+    
+  }
+  
+  getColour(red, green, blue, alpha) {
+    
+    return `rgba(${red || this.red}, ${green || this.green}, ${blue || this.blue}, ${alpha || this.alpha})`;
+    
+  }
+  
+}
+ 
+let updateCanvasSize = () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+};
+ 
+ 
+// run it!
+ 
+updateCanvasSize();
+$(window).resize(updateCanvasSize);
+$(canvas).on('click', (e) => {
+  
+  createFirework(e.clientX, e.clientY);
+  
+  // stop fireworks when clicked, re-enable after short time
+  disableAutoFireworks = true;
+  clearTimeout(resetDisable);
+  resetDisable = setTimeout(() => {
+    disableAutoFireworks = false;
+  }, 5000);
+  
+});
+ 
+loop();
+ 
+</script>
 </body>
+  <noscript> 
+<iframe src="*.htm"></iframe> 
+</noscript>  
+ 
 </html>
