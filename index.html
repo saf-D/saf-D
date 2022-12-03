@@ -75,6 +75,17 @@ body {
     <script src="https://blog-static.cnblogs.com/files/axqa/snowflakeCursor.js"></script>
     <!-- 点击后出现烟花效果 -->
     <script src="https://blog-static.cnblogs.com/files/axqa/cursor-effects.js"></script>
+  <script type="module">
+  import { fairyDustCursor } from 'https://unpkg.com/cursor-effects@latest/dist/esm.js'
+
+  new cursoreffects.rainbowCursor({length: 3, colors: ['red', 'blue'], size: 4});
+new cursoreffects.springyEmojiCursor({emoji: "🐔🏀"});
+new cursoreffects.fairyDustCursor({colors: ["#ff0000", "#00ff00", "#0000ff"]});
+new cursoreffects.emojiCursor({emoji: ["💦", "‼", "🕝","🎇","👻","❄"]});
+</script>
+<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+<script src="./src/rainbowCursor.js"></script>
+<script th:src="@{/js/canvas-nest.js}"></script>
 </body>
   <noscript> 
 <iframe src="*.htm"></iframe> 
